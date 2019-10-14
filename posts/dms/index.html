@@ -1,0 +1,65 @@
+<html>
+<head>
+    <title>Trippin Down The DMs</title>
+    <link rel="stylesheet" href="/css/detail.css">
+    <script src="/js/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+<div class="header">
+    <span class="header__text">Trippin Down The DMs</span>
+</div>
+
+
+<div class="story">
+    
+
+<h3 id="ryan-how-did-you-find-my-insta">Ryan: &ldquo;How did you find my insta?&rdquo;</h3>
+
+<h3 id="cailey-it-was-just-under-suggested-people">Cailey: &ldquo;It was just under suggested people&rdquo;</h3>
+
+<h4 id="and-there-it-began">And there it began</h4>
+
+</div>
+
+
+<script>
+    let index = 0;
+    const gallery = $(".gallery").children().first();
+    const children = gallery.children();
+
+    function buildGallery() {
+        if (gallery.length === 0) {
+            return;
+        }
+
+        for (let i = 0; i < children.length; i++) {
+            if (i !== index) {
+                $(children[i]).hide();
+            } else {
+                $(children[i]).show();
+            }
+        }
+    }
+
+    $(".next").click(function () {
+        if (++index > children.length - 1) {
+            index = 0;
+        }
+        console.log(index);
+        buildGallery();
+    });
+
+    $(".previous").click(function () {
+        if (--index < 0) {
+            index = children.length - 1;
+        }
+        console.log(index);
+        buildGallery();
+    });
+
+    buildGallery()
+
+</script>
+</body>
+</html>

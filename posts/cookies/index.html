@@ -1,0 +1,71 @@
+<html>
+<head>
+    <title>Cookies</title>
+    <link rel="stylesheet" href="/css/detail.css">
+    <script src="/js/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+<div class="header">
+    <span class="header__text">Cookies</span>
+</div>
+
+
+<div class="story">
+    
+
+<h5 id="ryan-you-wanna-come-up-the-the-fourth-floor-baking-cookies-with-a-couple-of-friends">Ryan: You wanna come up the the fourth floor? Baking cookies with a couple of friends 😎</h5>
+
+<h5 id="3-more-messages">[3 more messages]</h5>
+
+<h5 id="cailey-are-you-just-in-the-main-common-area-by-the-floor-kitchen-maybe-i-ll-just-bring-my-laptop-and-finish-up-there">Cailey: &hellip; Are you just in the main common area by the floor kitchen? Maybe I’ll just bring my laptop and finish up there</h5>
+
+<h5 id="ryan-yup-just-in-the-kitchen">Ryan: Yup. Just in the kitchen.</h5>
+
+<h5 id="cailey-right-on-okay-i-ll-be-up-in-a-few-minutes">Cailey: Right on okay I’ll be up in a few minutes!!</h5>
+
+<h6 id="but-cookies-weren-t-the-only-good-thing-to-happen-that-night">But cookies weren&rsquo;t the only good thing to happen that night</h6>
+
+</div>
+
+
+<script>
+    let index = 0;
+    const gallery = $(".gallery").children().first();
+    const children = gallery.children();
+
+    function buildGallery() {
+        if (gallery.length === 0) {
+            return;
+        }
+
+        for (let i = 0; i < children.length; i++) {
+            if (i !== index) {
+                $(children[i]).hide();
+            } else {
+                $(children[i]).show();
+            }
+        }
+    }
+
+    $(".next").click(function () {
+        if (++index > children.length - 1) {
+            index = 0;
+        }
+        console.log(index);
+        buildGallery();
+    });
+
+    $(".previous").click(function () {
+        if (--index < 0) {
+            index = children.length - 1;
+        }
+        console.log(index);
+        buildGallery();
+    });
+
+    buildGallery()
+
+</script>
+</body>
+</html>

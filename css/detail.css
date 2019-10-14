@@ -1,0 +1,107 @@
+body {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.header {
+    padding: 32px;
+}
+
+.header__text {
+    font-size: 1.25rem;
+    font-family: "Droid Sans";
+}
+
+.story {
+    height: calc(100vh - 88px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px;
+}
+
+.story > * {
+    transform: translate(0, -88px);
+    margin: 4px;
+}
+
+img {
+    max-width: 500px;
+}
+
+
+
+.gallery-controls {
+    height: calc(100vh - 88px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-controls > * {
+    transform: translate(0, -88px);
+}
+
+.gallery__arrow {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #8bc34a;
+    border-radius: 50%;
+    color: white;
+    align-self: center;
+    margin: 16px;
+}
+
+.gallery__arrow > img {
+    align-self: center;
+}
+
+.mobile-arrows {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .gallery-controls > * {
+        transform: translate(0);
+    }
+
+    img {
+        max-width: 400px;
+    }
+
+}
+
+@media (max-width: 475px)  {
+    img {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 710px) {
+    .gallery-controls {
+        flex-direction: column;
+    }
+
+    .large-arrow {
+        display: none;
+    }
+
+    .mobile-arrows {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-height: 550px) {
+    img {
+        max-width: 400px;
+    }
+
+    .gallery-controls > * {
+        transform: translate(0);
+    }
+}

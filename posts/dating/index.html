@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>Dating</title>
+    <link rel="stylesheet" href="/css/detail.css">
+    <script src="/js/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+<div class="header">
+    <span class="header__text">Dating</span>
+</div>
+
+
+<div class="gallery-controls">
+    <div class="previous large-arrow gallery__arrow"><img src="/icons/back_arrow.png"></div>
+    <div class="gallery">
+        <p><img src="/images/memory/dating/shrek.png"></p>
+
+    </div>
+    <div class="next large-arrow gallery__arrow"><img src="/icons/front_arrow.png"></div>
+
+    <div class="mobile-arrows">
+        <div class="previous gallery__arrow"><img src="/icons/back_arrow.png"></div>
+        <div class="next gallery__arrow">></div>
+    </div>
+</div>
+
+
+<script>
+    let index = 0;
+    const gallery = $(".gallery").children().first();
+    const children = gallery.children();
+
+    function buildGallery() {
+        if (gallery.length === 0) {
+            return;
+        }
+
+        for (let i = 0; i < children.length; i++) {
+            if (i !== index) {
+                $(children[i]).hide();
+            } else {
+                $(children[i]).show();
+            }
+        }
+    }
+
+    $(".next").click(function () {
+        if (++index > children.length - 1) {
+            index = 0;
+        }
+        console.log(index);
+        buildGallery();
+    });
+
+    $(".previous").click(function () {
+        if (--index < 0) {
+            index = children.length - 1;
+        }
+        console.log(index);
+        buildGallery();
+    });
+
+    buildGallery()
+
+</script>
+</body>
+</html>
